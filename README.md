@@ -139,3 +139,24 @@ interface Ingestor {
 * **API & clarity (2 pts)**: clean types, readable code, clear error messages.
 * **Tests (1 pt)**: happy/negative/edge + mock sink verifying byte consumption.
 * **Resilience (1 pt)**: error handling and cleanup.
+
+## Build Instructions
+
+This project uses Gradle for building and running. Ensure you have Java 17+ installed.
+
+### Common Gradle Commands (Windows)
+
+- **Build the project**: `.\gradlew.bat build`
+- **Run tests**: `.\gradlew.bat test`
+- **Run the application**: `.\gradlew.bat bootRun`
+- **Clean build files**: `.\gradlew.bat clean`
+
+### API Endpoints
+
+Once running, the app exposes:
+
+- `GET /` : Hello message
+- `GET /test-upload` : Test the ingestor with sample.pdf
+- `POST /upload` : Upload a file for processing (multipart/form-data with "file" parameter)
+
+Example test: `powershell.exe -command "Invoke-WebRequest -Uri http://localhost:8080/test-upload"`
